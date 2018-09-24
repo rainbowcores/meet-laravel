@@ -455,16 +455,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.7.3",
+            "version": "v5.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "536a024e3ef6b93f55f4039a7f4568efa7e60aea"
+                "reference": "ddb87a87471b452456fbbe1365e1b9ae55483515"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/536a024e3ef6b93f55f4039a7f4568efa7e60aea",
-                "reference": "536a024e3ef6b93f55f4039a7f4568efa7e60aea",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ddb87a87471b452456fbbe1365e1b9ae55483515",
+                "reference": "ddb87a87471b452456fbbe1365e1b9ae55483515",
                 "shasum": ""
             },
             "require": {
@@ -592,7 +592,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-09-11T13:42:55+00:00"
+            "time": "2018-09-20T14:03:45+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -876,16 +876,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.0.3",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "bd088dc940a418f09cda079a9b5c7c478890fb8d"
+                "reference": "fa6ee28600d21d49b2b4e1006b48426cec8e579c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd088dc940a418f09cda079a9b5c7c478890fb8d",
-                "reference": "bd088dc940a418f09cda079a9b5c7c478890fb8d",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/fa6ee28600d21d49b2b4e1006b48426cec8e579c",
+                "reference": "fa6ee28600d21d49b2b4e1006b48426cec8e579c",
                 "shasum": ""
             },
             "require": {
@@ -923,7 +923,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-07-15T17:25:16+00:00"
+            "time": "2018-09-18T07:03:24+00:00"
         },
         {
             "name": "paragonie/random_compat",
