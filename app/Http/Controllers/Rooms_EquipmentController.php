@@ -15,6 +15,8 @@ class Rooms_EquipmentController extends Controller
     public function index()
     {
         //
+        $rooms_Equipment = Rooms_Equipment::all();
+        return $rooms_Equipment;
     }
 
     /**
@@ -36,6 +38,9 @@ class Rooms_EquipmentController extends Controller
     public function store(Request $request)
     {
         //
+        if(Rooms_Equipment::Create($request->all())){
+        return true;
+    }
     }
 
     /**
@@ -47,7 +52,7 @@ class Rooms_EquipmentController extends Controller
     public function show(Rooms_Equipment $rooms_Equipment)
     {
         //
-        return view('rooms_Equipment.rooms_Equipment', ['rooms_Equipment => $rooms_Equipment']);
+        return $rooms_Equipment;
 
     }
 
@@ -72,6 +77,9 @@ class Rooms_EquipmentController extends Controller
     public function update(Request $request, Rooms_Equipment $rooms_Equipment)
     {
         //
+        if($rooms_Equipment->fill($request->all())->save()){
+            return true;
+        }
     }
 
     /**
@@ -83,5 +91,8 @@ class Rooms_EquipmentController extends Controller
     public function destroy(Rooms_Equipment $rooms_Equipment)
     {
         //
+        if($rooms_Equipment->delete()){
+            return true;
+        }
     }
 }

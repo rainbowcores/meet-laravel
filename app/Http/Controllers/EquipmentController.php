@@ -15,6 +15,8 @@ class EquipmentController extends Controller
     public function index()
     {
         //
+        $equipment = Equipment::all();
+        return $equipment;
     }
 
     /**
@@ -36,6 +38,9 @@ class EquipmentController extends Controller
     public function store(Request $request)
     {
         //
+        if(Equipment::Create($request->all())){
+            return true;
+        }
     }
 
     /**
@@ -47,7 +52,7 @@ class EquipmentController extends Controller
     public function show(Equipment $equipment)
     {
         //
-        return view('equipment.equipment', ['equipment => $equipment']);
+        return $equipment;
     }
 
     /**
@@ -71,6 +76,9 @@ class EquipmentController extends Controller
     public function update(Request $request, Equipment $equipment)
     {
         //
+        if($equipment->fill($request->all())->save()){
+            return true;
+        }
     }
 
     /**
@@ -82,5 +90,8 @@ class EquipmentController extends Controller
     public function destroy(Equipment $equipment)
     {
         //
+        if($equipment->delete()){
+            return true;
+        }
     }
 }

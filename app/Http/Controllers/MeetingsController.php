@@ -15,6 +15,8 @@ class MeetingsController extends Controller
     public function index()
     {
         //
+        $meetings = Meetings::all();
+        return $meetings;
     }
 
     /**
@@ -36,6 +38,9 @@ class MeetingsController extends Controller
     public function store(Request $request)
     {
         //
+        if(Meetings::Create($request->all())){
+            return true;
+        }
     }
 
     /**
@@ -47,7 +52,7 @@ class MeetingsController extends Controller
     public function show(Meetings $meetings)
     {
         //
-        return view('meetings.meetings', ['meetings => $meetings']);
+        return $meetings;
     }
 
     /**
@@ -71,6 +76,9 @@ class MeetingsController extends Controller
     public function update(Request $request, Meetings $meetings)
     {
         //
+        if($meetings->fill($request->all())->save()){
+            return true;
+        }
     }
 
     /**
@@ -82,5 +90,8 @@ class MeetingsController extends Controller
     public function destroy(Meetings $meetings)
     {
         //
+        if($meetings->delete()){
+            return true;
+        }
     }
 }

@@ -15,6 +15,8 @@ class RoomsController extends Controller
     public function index()
     {
         //
+        $rooms = Rooms::all();
+        return $rooms;
     }
 
     /**
@@ -36,6 +38,9 @@ class RoomsController extends Controller
     public function store(Request $request)
     {
         //
+        if(Rooms::Create($request->all())){
+            return true;
+        }
     }
 
     /**
@@ -47,7 +52,7 @@ class RoomsController extends Controller
     public function show(Rooms $rooms)
     {
         //
-        return view('rooms.rooms', ['rooms => $rooms']);
+        return $rooms;
     }
 
     /**
@@ -71,6 +76,9 @@ class RoomsController extends Controller
     public function update(Request $request, Rooms $rooms)
     {
         //
+        if($rooms->fill($request->all())->save()){
+            return true;
+        }
     }
 
     /**
@@ -82,5 +90,8 @@ class RoomsController extends Controller
     public function destroy(Rooms $rooms)
     {
         //
+        if($rooms->delete()){
+            return true;
+        }
     }
 }

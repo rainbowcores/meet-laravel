@@ -15,6 +15,8 @@ class EmployeesController extends Controller
     public function index()
     {
         //
+        $employees = Employees::all();
+        return $employees;
     }
 
     /**
@@ -36,6 +38,9 @@ class EmployeesController extends Controller
     public function store(Request $request)
     {
         //
+        if(Employees::Create($request->all())){
+            return true;
+        }
     }
 
     /**
@@ -47,8 +52,7 @@ class EmployeesController extends Controller
     public function show(Employees $employees)
     {
         //
-        return view('employees.employees', ['employees => $employees']);
-    }
+        return $employees;    }
 
     /**
      * Show the form for editing the specified resource.
@@ -71,6 +75,9 @@ class EmployeesController extends Controller
     public function update(Request $request, Employees $employees)
     {
         //
+        if($employees->fill($request->all())->save()){
+            return true;
+        }
     }
 
     /**
@@ -82,5 +89,8 @@ class EmployeesController extends Controller
     public function destroy(Employees $employees)
     {
         //
+        if($employees->delete()){
+            return true;
+        }
     }
 }
