@@ -38,9 +38,17 @@ class EquipmentController extends Controller
     public function store(Request $request)
     {
         //
-        if(Equipment::Create($request->all())){
-            return true;
-        }
+        //if(Equipment::Create($request->all())){
+            //return true;
+        //}
+        $equipment = new Equipment([
+            'equipment_name' => $request->get('equipment_name'),
+            'description' => $request->get('description'),
+            'availability_status' => $request->get('availability_status')
+        ]);
+        $equipment->save();
+        return redirect('/equipment')->with('success', 'Equipment has been added');
+
     }
 
     /**
