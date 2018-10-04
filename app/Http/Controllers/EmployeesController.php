@@ -17,6 +17,10 @@ class EmployeesController extends Controller
         //
         $employees = Employees::all();
         return $employees;
+       /*$employees = \App\Employees::all();
+       return view('viewemployees',['allEmployees' => $employees]);*/
+
+        
     }
 
     /**
@@ -27,6 +31,7 @@ class EmployeesController extends Controller
     public function create()
     {
         //
+    
     }
 
     /**
@@ -35,14 +40,24 @@ class EmployeesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+         /*
         if(Employees::Create($request->all())){
             return true;
-        }
-    }
+        }*/
+        $employees = new Employees([
+            'username' => $request->get('username'),
+            'password'=> $request->get('password'),
+            'department'=> $request->get('department'),
+            'telephone'=> $request->get('telephone'),
+            'email'=> $request->get('email')
+        ]);
+        //$employees->save();
+        return redirect('/employees')->with('success', 'Employee has been added');
 
+    
+    
+    }
     /**
      * Display the specified resource.
      *
@@ -52,8 +67,9 @@ class EmployeesController extends Controller
     public function show(Employees $employees)
     {
         //
-        return $employees;    }
-
+        return $employees;   
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -94,3 +110,6 @@ class EmployeesController extends Controller
         }
     }
 }
+
+
+    

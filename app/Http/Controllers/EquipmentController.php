@@ -42,9 +42,9 @@ class EquipmentController extends Controller
             //return true;
         //}
         $equipment = new Equipment([
-            'equipment_name' => $request->get('equipment_name'),
-            'description' => $request->get('description'),
-            'availability_status' => $request->get('availability_status')
+            'equipment_name' => $request->input('equipment_name'),
+            'description' => $request->input('description'),
+            'availability_status' => $request->input('availability_status')
         ]);
         $equipment->save();
         return redirect('/equipment')->with('success', 'Equipment has been added');

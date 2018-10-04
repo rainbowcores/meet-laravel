@@ -27,3 +27,5 @@ Route::resources([
     'rooms' => 'RoomsController'
 ]);
 
+
+
