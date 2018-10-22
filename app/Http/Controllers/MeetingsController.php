@@ -14,9 +14,9 @@ class MeetingsController extends Controller
      */
     public function index()
     {
-        //
         $meetings = Meetings::all();
-        return $meetings;
+        //return $meetings;
+        return view('meetings.index',compact('meetings'));
     }
 
     /**
@@ -27,6 +27,7 @@ class MeetingsController extends Controller
     public function create()
     {
         //
+        return view('meetings.create');
     }
 
     /**

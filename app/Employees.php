@@ -18,4 +18,9 @@ class Employees extends Model
     protected $hidden = [
         'password',
     ];
+
+    public function meetings()
+    {
+        return $this->hasOne('App\Meetings', 'meeting_id');
+    }
 }

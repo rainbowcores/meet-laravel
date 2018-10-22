@@ -11,4 +11,8 @@ class Rooms extends Model
     protected $primaryKey ='room_id';
     protected $fillable = ['room_name','location','capacity','room_description','availability_status'];
 
+    public function meetings()
+    {
+        return $this->hasMany('App\Meetings','meeting_id');
+    }
 }

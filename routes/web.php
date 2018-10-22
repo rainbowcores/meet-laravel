@@ -17,15 +17,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resources([
+Route::get('/meetings', 'MeetingsController@index')->name('meetings.index');
+
+Route::get('meetings/create', 'MeetingsController@create')->name('meetings.create');
+
+/*Route::resources([
     'employees' => 'EmployeesController',
     'equipment' => 'EquipmentController',
     'meetings' => 'MeetingsController',
     'rooms_equipment' => 'Rooms_EquipmentController',
     'rooms' => 'RoomsController'
 ]);
+*/
+
 
 
 
