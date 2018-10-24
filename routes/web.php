@@ -64,6 +64,22 @@ Route::post('equipment/delete/{equipment}', 'EquipmentController@destroy')->name
 
 Route::get('equipment/{equipment}', 'EquipmentController@show')->name('equipment.show');
 
+//rooms_equipment routes
+Route::get('/rooms_Equipment', 'Rooms_EquipmentController@index')->name('rooms_Equipment.index');
+
+Route::get('rooms_Equipment/create', 'Rooms_EquipmentController@create')->name('rooms_Equipment.create');
+
+Route::post('rooms_Equipment/create', 'Rooms_EquipmentController@store')->name('rooms_Equipment.store');
+
+Route::post('rooms_Equipment/{rooms_Equipment}', 'Rooms_EquipmentController@update')->name('rooms_Equipment.update');
+
+Route::get('rooms_Equipment/delete/{rooms_Equipment}', 'Rooms_EquipmentController@delete')->name('rooms_Equipment.delete');
+
+Route::post('rooms_Equipment/delete/{rooms_Equipment}', 'Rooms_EquipmentController@destroy')->name('rooms_Equipment.destroy');
+
+Route::get('rooms_Equipment/{rooms_Equipment}', 'Rooms_EquipmentController@show')->name('rooms_Equipment.show');
+
+
 
 
 

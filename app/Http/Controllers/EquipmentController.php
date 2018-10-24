@@ -31,6 +31,11 @@ class EquipmentController extends Controller
 
     }
 
+    public function delete(Equipment $equipment)
+    {
+        return view ('equipment.delete', compact('equipment'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,10 +43,7 @@ class EquipmentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function delete(Equipment $equipment)
-    {
-        return view ('equipment.delete', compact('equipment'));
-    }
+    
 
     public function store(Request $request)
     {

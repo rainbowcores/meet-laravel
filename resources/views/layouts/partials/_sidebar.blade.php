@@ -20,8 +20,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="align-justify"></span>
+          <a class="nav-link active" href="{{route('rooms_Equipment.index')}}">
+            <span data-feather="align-justify">(current)</span>
             Equipment In Rooms
           </a>
         </li>

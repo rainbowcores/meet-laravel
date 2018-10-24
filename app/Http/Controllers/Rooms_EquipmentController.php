@@ -16,7 +16,8 @@ class Rooms_EquipmentController extends Controller
     {
         //
         $rooms_Equipment = Rooms_Equipment::all();
-        return $rooms_Equipment;
+        return view('rooms_Equipment.index', compact('rooms_Equipment'));
+
     }
 
     /**
@@ -27,6 +28,13 @@ class Rooms_EquipmentController extends Controller
     public function create()
     {
         //
+        return view('rooms_Equipment.create');
+
+    }
+
+    public function delete(Rooms_Equipment $rooms_Equipment)
+    {
+        return view ('rooms_Equipment.delete', compact('rooms_Equipment'));
     }
 
     /**
@@ -37,10 +45,15 @@ class Rooms_EquipmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        if(Rooms_Equipment::Create($request->all())){
+        /*if(Rooms_Equipment::Create($request->all())){
         return true;
-    }
+        }*/
+            Rooms_Equipment::create([        
+            'equipment_id'=> request('equipment_id'),
+            'room_id'=> request('room_id')
+            ]);
+
+            return redirect()->route('rooms_Equipment.index');
     }
 
     /**
@@ -52,7 +65,7 @@ class Rooms_EquipmentController extends Controller
     public function show(Rooms_Equipment $rooms_Equipment)
     {
         //
-        return $rooms_Equipment;
+        return view('rooms_Equipment.show', compact('rooms_Equipment'));
 
     }
 
@@ -76,10 +89,15 @@ class Rooms_EquipmentController extends Controller
      */
     public function update(Request $request, Rooms_Equipment $rooms_Equipment)
     {
-        //
-        if($rooms_Equipment->fill($request->all())->save()){
+        /*if($rooms_Equipment->fill($request->all())->save()){
             return true;
-        }
+        }*/
+        $rooms_Equipment-> equipment_id=request('equipment_id');
+        $rooms_Equipment-> room_id=request('room_id');
+        $rooms_Equipment->save();
+
+        return redirect()->route('rooms_Equipment.index');
+
     }
 
     /**
@@ -90,9 +108,13 @@ class Rooms_EquipmentController extends Controller
      */
     public function destroy(Rooms_Equipment $rooms_Equipment)
     {
-        //
+        /*
         if($rooms_Equipment->delete()){
             return true;
-        }
+        }*/
+        $rooms_Equipment->delete();
+
+        return redirect()->route('rooms_Equipment.index');
+
     }
 }
