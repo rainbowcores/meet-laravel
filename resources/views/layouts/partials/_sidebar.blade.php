@@ -14,7 +14,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('equipment.index') }}">
+          <a class="nav-link active" href="{{route('equipment.index') }}">
             <span data-feather="align-justify">(current)</span>
             Equipment
           </a>

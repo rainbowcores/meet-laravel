@@ -16,7 +16,7 @@ class EquipmentController extends Controller
     {
         //
         $equipment = Equipment::all();
-        return $equipment;
+        return view('equipment.index', compact('equipment'));
     }
 
     /**
@@ -27,6 +27,8 @@ class EquipmentController extends Controller
     public function create()
     {
         //
+        return view('equipment.create');
+
     }
 
     /**
@@ -35,19 +37,25 @@ class EquipmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function delete(Equipment $equipment)
+    {
+        return view ('equipment.delete', compact('equipment'));
+    }
+
     public function store(Request $request)
     {
         //
         //if(Equipment::Create($request->all())){
             //return true;
         //}
-        $equipment = new Equipment([
-            'equipment_name' => $request->input('equipment_name'),
-            'description' => $request->input('description'),
-            'availability_status' => $request->input('availability_status')
+        Equipment::create([
+            'equipment_name' => request('equipment_name'),
+            'description' => request('description'),
+            'availability_status' => request('availability_status')
         ]);
-        $equipment->save();
-        return redirect('/equipment')->with('success', 'Equipment has been added');
+       
+        return redirect()->route('equipment.index')->with('success', 'Equipment has been added');
 
     }
 
@@ -60,7 +68,7 @@ class EquipmentController extends Controller
     public function show(Equipment $equipment)
     {
         //
-        return $equipment;
+        return view('equipment.show', compact('equipment'));
     }
 
     /**
@@ -83,10 +91,16 @@ class EquipmentController extends Controller
      */
     public function update(Request $request, Equipment $equipment)
     {
-        //
-        if($equipment->fill($request->all())->save()){
+        /*if($equipment->fill($request->all())->save()){
             return true;
-        }
+        }*/
+        $equipment->equipment_name = request('equipment_name');
+        $equipment->description = request('description');
+        $equipment->availability_status = request('availability_status');
+        $equipment->save();
+
+        return redirect()->route('equipment.index');
+
     }
 
     /**
@@ -97,9 +111,12 @@ class EquipmentController extends Controller
      */
     public function destroy(Equipment $equipment)
     {
-        //
+        /*
         if($equipment->delete()){
             return true;
-        }
+        }*/
+        $equipment->delete();
+
+        return redirect()->route('equipment.index');
     }
 }
