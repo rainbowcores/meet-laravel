@@ -7,31 +7,31 @@
             Meetings <span class="sr-only">(current)</span>
           </a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="file"></span>
-            Orders
+        <li class="nav-item">
+          <a class="nav-link active" href="{{route('rooms.index') }}">
+            <span data-feather="align-justify"><(current)</span>
+            Rooms
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('equipment.index') }}">
+            <span data-feather="align-justify">(current)</span>
+            Equipment
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <span data-feather="shopping-cart"></span>
-            Products
+            <span data-feather="align-justify"></span>
+            Equipment In Rooms
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
             <span data-feather="users"></span>
-            Customers
+            Employees
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="bar-chart-2"></span>
-            Reports
-          </a>
-        </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">
             <span data-feather="layers"></span>
             Integrations

@@ -10,7 +10,8 @@ class Rooms extends Model
     protected $table = 'rooms';
     protected $primaryKey ='room_id';
     protected $fillable = ['room_name','location','capacity','room_description','availability_status'];
-
+    public $timestamps = false;
+    
     public function meetings()
     {
         return $this->hasMany('App\Meetings','meeting_id');

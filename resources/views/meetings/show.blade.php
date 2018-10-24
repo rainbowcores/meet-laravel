@@ -21,30 +21,32 @@
 
 
     <form action="" method="post" class="form-horizontal">
-      
-      @csrf
+      @csrf      
       <fieldset>
             
             <!-- Form Name -->
-            <legend>Book New Meeting</legend>
+            <legend>Update Existing Meeting</legend>
 
-             <!--@crsf-->
+             
 
             <div class="form-group">
-              <label for "start_time">Start Time</label>
-              <input type="datetime-local" id="start_time" name="start_time" placeholder="yyyy-mm-dd hh-mm-ss"required=""  />
+              <label class="col-md-4 control-label" for "start_time">Start Time</label>
+              <div class="col-md-4">
+              <input type="datetime-local" id="start_time" name="start_time" value="{{ $meetings->start_time}}" required=""/>
+              </div>
             </div>
             <div class="form-group">
-              <label for "end_time">End Time</label>
-              <input type="datetime-local" id="end_time" name="end_time" placeholder="yyyy-mm-dd hh-mm-ss" required="" />
+              <label class="col-md-4 control-label" for "end_time">End Time</label>
+              <div class="col-md-4">
+              <input type="datetime-local" id="end_time" name="end_time" value="{{ $meetings->end_time}}" required="" />
+              </div>
             </div>
             
             <!-- Text input-->
             <div class="form-group">
               <label class="col-md-4 control-label" for="employeeid">Employee ID</label>  
               <div class="col-md-4">
-              <input id="employeeid" name="employeeid" placeholder="employee id" class="form-control input-md" required="" type="text">
-                
+              <input id="employeeid" name="employeeid" placeholder="employee id" class="form-control input-md" required="" type="text" value="{{ $meetings->employeeid}}">
               </div>
             </div>
             
@@ -52,7 +54,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="room_id">Room ID</label>  
               <div class="col-md-4">
-              <input id="room_id" name="room_id" placeholder="room id" class="form-control input-md" required="" type="text">
+              <input id="room_id" name="room_id" placeholder="room id" class="form-control input-md" required="" type="text" value="{{ $meetings->room_id}}">
                 
               </div>
             </div>
@@ -61,8 +63,8 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="button1id"></label>
               <div class="col-md-8">
-                <button id="button1id" name="button1id" class="btn btn-success" type="submit">Save</button>
-              <a href="{{ route('meetings.index') }}" class="btn btn-danger">Cancel</a>
+                <button id="button1id" name="button1id" class="btn btn-success " type="submit">Save</button>
+                <a href="{{ route('meetings.index') }}" class="btn btn-danger">Cancel</a>
               </div>
             </div>
             

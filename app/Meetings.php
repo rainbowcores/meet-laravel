@@ -9,7 +9,8 @@ class Meetings extends Model
     //
     protected $table = 'meetings';
     protected $primaryKey ='meeting_id';
-    protected $fillable = ['start_time','end_time'];
+    protected $fillable = ['start_time','end_time','employeeid','room_id'];
+    public $timestamps = false;
 
     public function employees()
     {
