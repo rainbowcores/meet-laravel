@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
+                <!--<div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -23,21 +23,25 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>-->
+                        <div class="card-body">
+                        <form method="POST" action="{{ route('register') }}">
+                        @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -61,6 +65,60 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+
+                            <label for="type" class="col-md-4 control-label text-md-right" >User Type:</label>
+                            
+                            <div class="col-md-6">
+                            
+                            <select class="form-control" name="type" id="type">
+                            
+                            <option value="admin">Admin</option>
+                            
+                            <option value="member">Member</option>
+                            
+                            </select>
+                            
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-4 control-label text-md-right" for="department">Department</label>  
+                            <div class="col-md-6">
+                            <select class="form-control" id="department" name="department" placeholder="department" class="form-control input-md" required="" >
+                                <option>Finance</option>
+                                <option>Sales and Marketing</option>
+                                <option>Operations</option>
+                                <option>IT</option>
+                                <option>HR</option>
+                            </select>
+                            </div>
+                        </div>
+            
+                        <!-- Text input-->
+                        <div class="form-group row">
+                            <label class="col-md-4 control-label text-md-right" for="telephone">Telephone Number</label>  
+                            <div class="col-md-6">
+                            <input id="telephone" name="telephone" placeholder="telephone number" class="form-control input-md" required="" type="text" >
+                              
+                            </div>
+                          </div>
+
+                        
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div> 
+                        
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

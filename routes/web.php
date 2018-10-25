@@ -79,6 +79,21 @@ Route::post('rooms_Equipment/delete/{rooms_Equipment}', 'Rooms_EquipmentControll
 
 Route::get('rooms_Equipment/{rooms_Equipment}', 'Rooms_EquipmentController@show')->name('rooms_Equipment.show');
 
+//employees routes
+Route::get('/employees', 'EmployeesController@index')->name('employees.index');
+
+Route::get('employees/create', 'EmployeesController@create')->name('employees.create');
+
+Route::post('employees/create', 'EmployeesController@store')->name('employees.store');
+
+Route::post('employees/{employees}', 'EmployeesController@update')->name('employees.update');
+
+Route::get('employees/delete/{employees}', 'EmployeesController@delete')->name('employees.delete');
+
+Route::post('employees/delete/{employees}', 'EmployeesController@destroy')->name('employees.destroy');
+
+Route::get('employees/{employees}', 'EmployeesController@show')->name('employees.show');
+
 
 
 
@@ -98,4 +113,27 @@ Route::get('rooms_Equipment/{rooms_Equipment}', 'Rooms_EquipmentController@show'
 
 
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Admin routes
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+
+{
+
+Route::match(['get', 'post'], '/adminOnlyPage/', 'HomeController@admin');
+
+});
+
+//Member Routes
+Route::group(['middleware' => 'App\Http\Middleware\MemberMiddleware'], function()
+
+{
+
+Route::match(['get', 'post'], '/memberOnlyPage/', 'HomeController@member');
+
+});
 

@@ -16,10 +16,8 @@ class EmployeesController extends Controller
     {
         //
         $employees = Employees::all();
-        return $employees;
-       /*$employees = \App\Employees::all();
-       return view('viewemployees',['allEmployees' => $employees]);*/
-
+        return view('employees.index', compact('employees'));
+       
         
     }
 
@@ -31,8 +29,15 @@ class EmployeesController extends Controller
     public function create()
     {
         //
+        return view ('employees.create');
     
     }
+
+    public function delete(Employees $employees)
+    {
+        return view ('employees.delete', compact('employees'));
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -45,15 +50,16 @@ class EmployeesController extends Controller
         if(Employees::Create($request->all())){
             return true;
         }*/
-        $employees = new Employees([
+            Employees::create([
             'username' => $request->get('username'),
             'password'=> $request->get('password'),
+            'type'=> $request->get('type'),
             'department'=> $request->get('department'),
             'telephone'=> $request->get('telephone'),
             'email'=> $request->get('email')
-        ]);
+            ]);
         //$employees->save();
-        return redirect('/employees')->with('success', 'Employee has been added');
+        return redirect()->route('employees.index');
 
     
     
@@ -67,7 +73,7 @@ class EmployeesController extends Controller
     public function show(Employees $employees)
     {
         //
-        return $employees;   
+        return view('employees.show', compact('employees'));
     }
     
     /**
@@ -90,10 +96,20 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, Employees $employees)
     {
-        //
+        /*
         if($employees->fill($request->all())->save()){
             return true;
-        }
+        }*/
+        $employees ->username = request('username');
+        $employees->password= request('password');
+        $employees->type= request('type');
+        $employees->department= request('department');
+        $employees->telephone= request('telephone');
+        $employees->email =request('email');
+        $employees->save();
+
+        return redirect()->route('employees.index');
+
     }
 
     /**
@@ -104,10 +120,13 @@ class EmployeesController extends Controller
      */
     public function destroy(Employees $employees)
     {
-        //
+        /*
         if($employees->delete()){
             return true;
-        }
+        }*/
+        $employees->delete();
+
+        return redirect()->route('employees.index');
     }
 }
 

@@ -26,8 +26,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="users"></span>
+        <a class="nav-link active" href="{{route('employees.index')}}">
+            <span data-feather="users">(current)</span>
             Employees
           </a>
         </li>
