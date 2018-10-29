@@ -15,6 +15,11 @@ class Employees extends \Eloquent implements Authenticatable
     protected $primaryKey ='employeeid';
     protected $fillable = ['username','password','type','department','telephone','email'];
     public $timestamps = false;
+    public function setPasswordAttribute($pass){
+
+        $this->attributes['password'] = \Hash::make($pass);
+        
+        }
 
     /**
      * The attributes that should be hidden for arrays.

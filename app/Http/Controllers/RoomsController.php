@@ -58,7 +58,7 @@ class RoomsController extends Controller
             'availability_status'=> request('availability_status')
         ]);
 
-        return redirect()->route('rooms.index');
+        return redirect()->route('rooms.index')->withSuccess('Room has been created');;
     }
 
     /**
@@ -103,7 +103,7 @@ class RoomsController extends Controller
             $rooms->availability_status= request('availability_status');
             $rooms->save();
 
-            return redirect()->route('rooms.index');
+            return redirect()->route('rooms.index')->withSuccess('Room has been updated');
 
 
     }
@@ -122,6 +122,6 @@ class RoomsController extends Controller
         }*/
         $rooms->delete();
 
-        return redirect()->route('rooms.index');
+        return redirect()->route('rooms.index')->withSuccess('Room has been deleted');
     }
 }

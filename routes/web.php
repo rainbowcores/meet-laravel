@@ -124,7 +124,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 
 {
 
-Route::match(['get', 'post'], '/adminOnlyPage/', 'HomeController@admin');
+Route::match(['get', 'post'], '/adminOnlyPage/', 'RoomsController@index');
 
 });
 
@@ -133,7 +133,8 @@ Route::group(['middleware' => 'App\Http\Middleware\MemberMiddleware'], function(
 
 {
 
-Route::match(['get', 'post'], '/memberOnlyPage/', 'HomeController@member');
+//Route::match(['get', 'post'], '/memberOnlyPage/', 'HomeController@member');
+Route::match(['get', 'post'], '/memberOnlyPage/', 'MeetingsController@index');
 
 });
 

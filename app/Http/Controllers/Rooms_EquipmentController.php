@@ -53,7 +53,8 @@ class Rooms_EquipmentController extends Controller
             'room_id'=> request('room_id')
             ]);
 
-            return redirect()->route('rooms_Equipment.index');
+            return redirect()->route('rooms_Equipment.index')->withSuccess('(Rooms_Equipment has been added');
+
     }
 
     /**
@@ -96,7 +97,7 @@ class Rooms_EquipmentController extends Controller
         $rooms_Equipment-> room_id=request('room_id');
         $rooms_Equipment->save();
 
-        return redirect()->route('rooms_Equipment.index');
+        return redirect()->route('rooms_Equipment.index')->withSuccess('(Rooms_Equipment has been updated');
 
     }
 
@@ -114,7 +115,7 @@ class Rooms_EquipmentController extends Controller
         }*/
         $rooms_Equipment->delete();
 
-        return redirect()->route('rooms_Equipment.index');
+        return redirect()->route('rooms_Equipment.index')->withSuccess('(Rooms_Equipment has been deleted');
 
     }
 }

@@ -57,7 +57,7 @@ class MeetingsController extends Controller
             'room_id'=> request('room_id')
             ]);
 
-            return redirect()->route('meetings.index');
+            return redirect()->route('meetings.index')->withSuccess('Meeting has been created');
             
 
             
@@ -114,7 +114,7 @@ class MeetingsController extends Controller
             $meetings->room_id=request('room_id');
             $meetings->save();
             
-            return redirect()->route('meetings.index');
+            return redirect()->route('meetings.index')->withSuccess('Meeting has been updated');
     }
 
     /**
@@ -131,7 +131,7 @@ class MeetingsController extends Controller
         }*/
         $meetings->delete();
 
-        return redirect()->route('meetings.index');
+        return redirect()->route('meetings.index')->withSuccess('Meeting has been deleted');
 
     }
 }

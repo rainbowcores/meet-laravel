@@ -5,28 +5,36 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2">Meetings</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group mr-2">
+        <!--<div class="btn-group mr-2">
           <button class="btn btn-sm btn-outline-secondary">Share</button>
           <button class="btn btn-sm btn-outline-secondary">Export</button>
         </div>
         <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
           <span data-feather="calendar"></span>
           This week
-        </button>
+        </button>-->
       </div>
+      @include ('layouts.partials._alerts')
+
     </div>
 
     <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
 
 
 
-    <form action="" method="post" class="form-horizontal">
+    <form action="" id="my_form" method="post" class="form-horizontal">
       
       @csrf
       <fieldset>
             
             <!-- Form Name -->
             <legend>Book New Meeting</legend>
+            <div class="alert alert-danger alert-dismissible fade hide" role="alert" id="error_container">
+              Start date should be less than end time
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
 
              <!--@crsf-->
 
@@ -61,7 +69,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="button1id"></label>
               <div class="col-md-8">
-                <button id="button1id" name="button1id" class="btn btn-success" type="submit">Save</button>
+                <button id="button1id" name="button1id" class="btn btn-success">Save</button>
               <a href="{{ route('meetings.index') }}" class="btn btn-danger">Cancel</a>
               </div>
             </div>
@@ -69,7 +77,5 @@
             </fieldset>
             </form>
     
-        
-
   </main>
 @endsection

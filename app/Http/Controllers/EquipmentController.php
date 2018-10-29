@@ -101,7 +101,7 @@ class EquipmentController extends Controller
         $equipment->availability_status = request('availability_status');
         $equipment->save();
 
-        return redirect()->route('equipment.index');
+        return redirect()->route('equipment.index')->withSuccess('Equipment has been updated');
 
     }
 
@@ -119,6 +119,6 @@ class EquipmentController extends Controller
         }*/
         $equipment->delete();
 
-        return redirect()->route('equipment.index');
+        return redirect()->route('equipment.index')->withSuccess('Equipment has been deleted');
     }
 }

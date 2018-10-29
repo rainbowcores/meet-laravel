@@ -1,5 +1,5 @@
 @extends ('layouts.main')
-
+@include ('layouts.partials._sidebar')
 @section ('content')
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -14,6 +14,8 @@
           This week
         </button>
       </div>
+      @include ('layouts.partials._alerts')
+
     </div>
 
     <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
@@ -54,7 +56,7 @@
 
               <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="availability_status">Room Availability Status</label>  
+                <label class="col-md-4 control-label" for="availability_status">Availability Status</label>  
                 <div class="col-md-4">
                 <select class="form-control" id="availability_status" name="availability_status" placeholder="room availability status" class="form-control input-md" required="">
                     <option>Available</option>

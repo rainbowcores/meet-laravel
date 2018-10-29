@@ -11,6 +11,27 @@
       feather.replace()
     </script>
 
+    <script>
+
+      $("#my_form").submit(function() {
+
+        var startTime = $("#start_time").val();
+        var endTime = $("#end_time").val();
+
+       if(Date.parse(startTime) > Date.parse(endTime)) {
+        $("#error_container").show();
+         $("#error_container").text("Start Date should be greater the end time");
+         return false;
+        }else {
+          return true;
+        }
+        
+        return false;
+
+      })
+
+      </script>
+
     <!-- Graphs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script>

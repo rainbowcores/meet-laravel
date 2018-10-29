@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Employees;
 use Illuminate\Http\Request;
 
+
 class EmployeesController extends Controller
 {
     /**
@@ -29,6 +30,7 @@ class EmployeesController extends Controller
     public function create()
     {
         //
+        
         return view ('employees.create');
     
     }
@@ -59,7 +61,9 @@ class EmployeesController extends Controller
             'email'=> $request->get('email')
             ]);
         //$employees->save();
-        return redirect()->route('employees.index');
+        return redirect()->route('employees.index')->withSuccess('Employee has been registered');
+
+        
 
     
     
@@ -108,7 +112,7 @@ class EmployeesController extends Controller
         $employees->email =request('email');
         $employees->save();
 
-        return redirect()->route('employees.index');
+        return redirect()->route('employees.index')->withSuccess('Employee has been updated');
 
     }
 
@@ -126,7 +130,7 @@ class EmployeesController extends Controller
         }*/
         $employees->delete();
 
-        return redirect()->route('employees.index');
+        return redirect()->route('employees.index')->withSuccess('Employee has been deleted');
     }
 }
 

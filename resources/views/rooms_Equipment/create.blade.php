@@ -1,5 +1,5 @@
 @extends ('layouts.main')
-
+@include ('layouts.partials._sidebar')
 @section ('content')
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -14,6 +14,8 @@
           This week
         </button>
       </div>
+      @include ('layouts.partials._alerts')
+
     </div>
 
     <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
@@ -56,10 +58,18 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="button1id"></label>
               <div class="col-md-8">
-                <button id="button1id" name="button1id" class="btn btn-success" type="submit">Add</button>
+                <button id="button1id" name="button1id" class="btn btn-success" type="submit">
+                    @if(session()->has('alert-success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('alert-success') }}
+                    </div>
+                @endif
+                Add</button>
               <a href="{{ route('rooms_Equipment.index') }}" class="btn btn-danger">Cancel</a>
               </div>
             </div>
+
+            
             
             </fieldset>
             </form>
