@@ -4,7 +4,7 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2">Meetings</h1>
-      <div class="btn-toolbar mb-2 mb-md-0">
+      <!--<div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
           <button class="btn btn-sm btn-outline-secondary">Share</button>
           <button class="btn btn-sm btn-outline-secondary">Export</button>
@@ -13,7 +13,7 @@
           <span data-feather="calendar"></span>
           This week
         </button>
-      </div>
+      </div>-->
       @include ('layouts.partials._alerts')
 
     </div>
@@ -27,9 +27,15 @@
       <fieldset>
             
             <!-- Form Name -->
-            <legend>Delete Existing Meeting</legend>
+            <legend>Cancel Meeting</legend>
 
-             
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="title">Meeting Title</label>  
+              <div class="col-md-4">
+              <input id="title" name="title" placeholder="meeting title" class="form-control input-md" required="" type="text" value="{{ $meetings->title}}" disabled>
+                
+              </div>
+            </div>
 
             <div class="form-group">
               <label class="col-md-4 control-label" for "start_time">Start Time</label>
@@ -43,6 +49,13 @@
               <input type="datetime-local" id="end_time" name="end_time" value="{{ $meetings->end_time}}"  disabled/>
               </div>
             </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="memnumber">Number of Members</label>  
+                <div class="col-md-4">
+                <input id="memnumber" name="memnumber" placeholder="memnumber" class="form-control input-md" required="" type="number" min="1" value="{{ $meetings->memnumber}}" disabled>
+                  
+                </div>
+              </div>
             
             <!-- Text input-->
             <div class="form-group">
@@ -60,13 +73,21 @@
                 
               </div>
             </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="requirements">Additional Requests </label>  
+              <div class="col-md-4">
+              <input id="requirements" name="requirements" placeholder="additional details" class="form-control input-md" required="" type="text" value="{{ $meetings->requirements}}" disabled>
+                
+              </div>
+            </div>
             
             <!-- Button (Double) -->
             <div class="form-group">
               <label class="col-md-4 control-label" for="button1id"></label>
               <div class="col-md-8">
-                <button id="button1id" name="button1id" class="btn btn-danger " type="submit">Delete</button>
-                <a href="{{ route('meetings.index') }}" class="btn btn-secondary">Cancel</a>
+                <button id="button1id" name="button1id" class="btn btn-danger " type="submit">Cancel Meeting</button>
+                <a href="{{ route('meetings.index') }}" class="btn btn-secondary">Back</a>
               </div>
             </div>
             

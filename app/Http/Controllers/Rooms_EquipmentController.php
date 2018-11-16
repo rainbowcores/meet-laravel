@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Rooms_Equipment;
 use Illuminate\Http\Request;
+use App\Rooms;
+use App\Equipment;
 
 class Rooms_EquipmentController extends Controller
 {
@@ -28,7 +30,11 @@ class Rooms_EquipmentController extends Controller
     public function create()
     {
         //
-        return view('rooms_Equipment.create');
+        $rooms = Rooms::pluck('room_name', 'room_id');
+        $equipment = Equipment::pluck('equipment_name', 'equipment_id');
+        return view('rooms_Equipment.create')->with('rooms', $rooms)->with('equipment', $equipment);
+       
+        
 
     }
 

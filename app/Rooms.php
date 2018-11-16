@@ -16,4 +16,9 @@ class Rooms extends Model
     {
         return $this->hasMany('App\Meetings','meeting_id');
     }
+    public function rooms_Equipment()
+    {
+        return $this->belongsTo('App\rooms_Equipment', 'roomequipment_id');
+    }
+    
 }

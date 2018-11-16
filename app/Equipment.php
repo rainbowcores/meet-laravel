@@ -11,5 +11,11 @@ class Equipment extends Model
     protected $primaryKey ='equipment_id';
     protected $fillable = ['equipment_name','description','availability_status'];
     public $timestamps = false;
+    
+    public function rooms_Equipment()
+    {
+        return $this->belongsTo('App\rooms_Equipment', 'roomequipment_id');
+    }
+    
 
 }

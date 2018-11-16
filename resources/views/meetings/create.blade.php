@@ -34,35 +34,66 @@
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
+            </div>
 
              <!--@crsf-->
-
+            <div class="form-group">
+              <label  for="title">Meeting Title</label>  
+             
+              <input id="title" name="title" placeholder="meeting title" class="form-control" required="" type="text">
+                
+              
+            </div>
+            
             <div class="form-group">
               <label for "start_time">Start Time</label>
-              <input type="datetime-local" id="start_time" name="start_time" placeholder="yyyy-mm-dd hh-mm-ss"required=""  />
+              <input type="datetime-local" id="start_time" name="start_time" placeholder="yyyy-mm-dd hh-mm-ss"required=""  >
             </div>
             <div class="form-group">
               <label for "end_time">End Time</label>
-              <input type="datetime-local" id="end_time" name="end_time" placeholder="yyyy-mm-dd hh-mm-ss" required="" />
+              <input type="datetime-local" id="end_time" name="end_time" placeholder="yyyy-mm-dd hh-mm-ss" required="" >
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="memnumber">Number of Members</label>  
+                <div class="col-md-4">
+                <input id="memnumber" name="memnumber" placeholder="memnumber" class="form-control input-md" required="" type="number" min="1">
+                  
+                </div>
             </div>
             
             <!-- Text input-->
-            <div class="form-group">
+            <!--<div class="form-group">
               <label class="col-md-4 control-label" for="employeeid">Employee ID</label>  
               <div class="col-md-4">
               <input id="employeeid" name="employeeid" placeholder="employee id" class="form-control input-md" required="" type="text">
                 
               </div>
+            </div>-->
+            <div class="form-group">
+              {!! Form::Label('employeeid', 'Employee') !!}
+              {!! Form::select('employeeid', $employees, null, ['class' => 'form-control']) !!}
+              
             </div>
             
             <!-- Text input-->
-            <div class="form-group">
+            <!--<div class="form-group">
               <label class="col-md-4 control-label" for="room_id">Room ID</label>  
               <div class="col-md-4">
               <input id="room_id" name="room_id" placeholder="room id" class="form-control input-md" required="" type="text">
                 
               </div>
+            </div>-->
+            <div class="form-group">
+              {!! Form::Label('room_id', 'Room') !!}
+              {!! Form::select('room_id', $rooms, null, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+              <label  for="requirements">Additional Requests </label>  
+              
+              <input id="requirements" name="requirements" placeholder="additional details" class="form-control" required="" type="text">
+                
+              
             </div>
             
             <!-- Button (Double) -->
@@ -73,6 +104,8 @@
               <a href="{{ route('meetings.index') }}" class="btn btn-danger">Cancel</a>
               </div>
             </div>
+
+            
             
             </fieldset>
             </form>

@@ -3,41 +3,41 @@
       <ul class="nav flex-column">
         
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('rooms.index') }}">
-            <span data-feather="align-justify"><(current)</span>
+          <a class="btn btn-lg btn-outline-secondary" href="{{route('rooms.index') }}">
+            <span data-feather="align-justify">(current)</span>
             Rooms
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('meetings.index') }}">
+            <a class="btn btn-lg btn-outline-secondary" href="{{route('rooms_Equipment.index')}}">
+              <span data-feather="align-justify">(current)</span>
+              Equipment In Rooms
+            </a>
+          </li>
+          <li class="nav-item">
+          <a class="btn btn-lg btn-outline-secondary" href="{{route('employees.index')}}">
+              <span data-feather="users">(current)</span>
+              Employees
+            </a>
+        <li class="nav-item">
+          <a class="btn btn-lg btn-outline-secondary" href="{{route('meetings.index') }}">
             <span data-feather="align-justify"></span>
             Meetings <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('equipment.index') }}">
+          <a class="btn btn-lg btn-outline-secondary" href="{{route('equipment.index') }}">
             <span data-feather="align-justify">(current)</span>
             Equipment
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="{{route('rooms_Equipment.index')}}">
-            <span data-feather="align-justify">(current)</span>
-            Equipment In Rooms
-          </a>
+        
         </li>
         <li class="nav-item">
-        <a class="nav-link active" href="{{route('employees.index')}}">
-            <span data-feather="users">(current)</span>
-            Employees
-          </a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span data-feather="layers"></span>
-            Integrations
-          </a>
-        </li> -->
+            <a href="{{ route('meetings.export') }}" class="btn btn-lg btn-outline-secondary">
+                <span data-feather="archive"></span>
+              Export Meeting Data
+            </a>
       </ul>
 
       <!--<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">

@@ -15,12 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 //meetings routes
 
 Route::get('/meetings', 'MeetingsController@index')->name('meetings.index');
+
+Route::get('/meetingsexport', 'MeetingsController@export')->name('meetings.export');
+
+Route::get('/help', 'MeetingsController@help')->name('help');
 
 Route::get('meetings/create', 'MeetingsController@create')->name('meetings.create');
 
@@ -36,6 +42,8 @@ Route::get('meetings/{meetings}', 'MeetingsController@show')->name('meetings.sho
 
 //rooms routes
 Route::get('/rooms', 'RoomsController@index')->name('rooms.index');
+
+Route::get('/roomslist', 'RoomsController@list')->name('rooms.list');
 
 Route::get('rooms/create', 'RoomsController@create')->name('rooms.create');
 

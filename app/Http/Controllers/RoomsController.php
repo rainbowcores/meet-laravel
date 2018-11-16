@@ -18,6 +18,12 @@ class RoomsController extends Controller
         $rooms = Rooms::all();
         return view('rooms.index',compact('rooms'));
     }
+    public function list()
+    {
+        //
+        $rooms = Rooms::all();
+        return view('rooms.list',compact('rooms'));
+    }
 
     /**
      * Show the form for creating a new resource.

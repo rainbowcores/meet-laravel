@@ -15,10 +15,13 @@ class CreateMeetingsTable extends Migration {
 		Schema::create('meetings', function(Blueprint $table)
 		{
 			$table->integer('meeting_id', true);
+			$table->string('title')->nullable();
 			$table->dateTime('start_time')->nullable();
 			$table->dateTime('end_time')->nullable();
+			$table->integer('memnumber')->nullable();
 			$table->integer('employeeid')->nullable()->index('fk_users');
 			$table->integer('room_id')->nullable()->index('fk_rooms');
+			$table->string('requirements')->nullable();
 		});
 	}
 
